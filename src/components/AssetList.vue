@@ -77,7 +77,7 @@ export default {
     fetchAssets() {
       axios
         .get(
-          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset'
+          'https://be.evergreen-finanzas.ml/api/asset'
         )
         .then((res) => {
           res.data.forEach(
@@ -92,7 +92,7 @@ export default {
     deleteAsset() {
       axios
         .delete(
-          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset/' +
+          'https://be.evergreen-finanzas.ml/api/asset' +
             this.selected.id
         )
         .then((res) => {
