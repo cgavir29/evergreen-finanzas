@@ -34,7 +34,7 @@ export default {
       if (this.description != '' && this.value != null && this.type != '') {
         axios
           .post(
-            'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset',
+            'https://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset',
             {
               description: this.description,
               value: this.value,
