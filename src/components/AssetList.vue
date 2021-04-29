@@ -39,6 +39,7 @@ export default {
   },
   data() {
     const tableData = [];
+
     return {
       tableData,
       selected: tableData[1],
@@ -76,9 +77,15 @@ export default {
   },
   methods: {
     fetchAssets() {
+      const https = require('https');
+      const agent = new https.Agent({
+        rejectUnauthorized: false,
+      });
+
       axios
         .get(
-          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset'
+          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset',
+          { httpsAgent: agent }
         )
         .then((res) => {
           res.data.forEach(
@@ -91,10 +98,16 @@ export default {
         .catch((err) => console.log(err));
     },
     deleteAsset() {
+      const https = require('https');
+      const agent = new https.Agent({
+        rejectUnauthorized: false,
+      });
+
       axios
         .delete(
           'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset/' +
-            this.selected.id
+            this.selected.id,
+          { httpsAgent: agent }
         )
         .then((res) => {
           this.fetchAssets();
