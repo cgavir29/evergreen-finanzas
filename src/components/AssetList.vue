@@ -77,15 +77,9 @@ export default {
   },
   methods: {
     fetchAssets() {
-      const https = require('https');
-      const agent = new https.Agent({
-        rejectUnauthorized: false,
-      });
-
       axios
         .get(
-          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset',
-          { httpsAgent: agent }
+          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset'
         )
         .then((res) => {
           res.data.forEach(
@@ -98,16 +92,10 @@ export default {
         .catch((err) => console.log(err));
     },
     deleteAsset() {
-      const https = require('https');
-      const agent = new https.Agent({
-        rejectUnauthorized: false,
-      });
-
       axios
         .delete(
           'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset/' +
-            this.selected.id,
-          { httpsAgent: agent }
+            this.selected.id
         )
         .then((res) => {
           this.fetchAssets();
