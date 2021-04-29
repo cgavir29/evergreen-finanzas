@@ -2,7 +2,7 @@
   <div id="app">
     <h1 class="title mb-6">Evergreen | Finanzas</h1>
     <AssetCreation @assetCreated="notifyList($event)" />
-    <AssetList :newAsset="newAsset" />
+    <AssetList :newAsset="trigger" />
   </div>
 </template>
 
@@ -17,13 +17,13 @@ export default {
     AssetList,
   },
   methods: {
-    notifyList(event) {
-      this.newAsset = event;
+    notifyList() {
+      this.trigger++;
     },
   },
   data() {
     return {
-      newAsset: false,
+      trigger: 0,
     };
   },
 };

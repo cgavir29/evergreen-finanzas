@@ -32,9 +32,7 @@ export default {
   props: ['newAsset'],
   watch: {
     newAsset: function() {
-      if (this.newAsset) {
-        this.fetchAssets();
-      }
+      this.fetchAssets();
     },
   },
   data() {
@@ -79,7 +77,7 @@ export default {
     fetchAssets() {
       axios
         .get(
-          'https://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset'
+          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset'
         )
         .then((res) => {
           res.data.forEach(
@@ -94,7 +92,7 @@ export default {
     deleteAsset() {
       axios
         .delete(
-          'https://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset/' +
+          'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/asset/' +
             this.selected.id
         )
         .then((res) => {
