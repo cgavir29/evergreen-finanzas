@@ -92,7 +92,7 @@ export default {
     deleteAsset() {
       axios
         .delete(
-          'https://be.evergreen-finanzas.ml/api/asset' +
+          'https://be.evergreen-finanzas.ml/api/asset/' +
             this.selected.id
         )
         .then((res) => {
