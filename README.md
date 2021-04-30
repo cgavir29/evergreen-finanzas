@@ -1,4 +1,4 @@
-# evergreen-finanzas
+# Evergreen | Finanzas
 
 ## Project setup
 ```
